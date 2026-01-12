@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Manhattan Pizza Opole | Najlepsza Pizzeria Nocna Manhattan</title>
+    <meta name="description" content="Manhattan Pizza w Opolu - najlepsza pizzeria nocna! Pyszna pizza na cienkim cieście, szybka dostawa. Sprawdź menu Pizzerii Manhattan i zamów online.">
+    <meta name="keywords" content="pizzeria opole, pizzeria nocna manhattan, manhattan pizza opole, pizza manhattan, jedzenie nocą opole">
+    <link rel="canonical" href="https://twoja-strona.pl/">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a5fb4; /* Ciemny niebieski zgodnie z ustaleniami */
+            --deep-navy: #0a192f;
+            --dark-bg: #050505;
+            --light-text: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+        }
+
+        /* --- NAWIGACJA --- */
+        nav {
+            background: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 10%;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-blue);
+        }
+
+        .logo-container img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li { margin-left: 25px; }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-blue); }
+
+        /* Burger */
+        .burger { display: none; cursor: pointer; z-index: 1100; }
+        .burger div { width: 25px; height: 3px; background-color: white; margin: 5px; transition: 0.3s; }
+
+        /* --- SIDEBAR MOBILE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 0;
+                height: 100vh;
+                width: 75%;
+                background-color: #000;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.5s ease-in-out;
+            }
+            .nav-active { right: 0; }
+            .burger { display: block; }
+            .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
+            .toggle .line2 { opacity: 0; }
+            .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+        }
+
+        /* --- HERO --- */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.5rem, 7vw, 4.5rem); 
+            color: white;
+        }
+        header h1 span { color: var(--primary-blue); }
+
+        .btn {
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn:hover { opacity: 0.8; }
+
+        /* --- SEKCJA MENU --- */
+        section { padding: 100px 10%; }
+        h2 { 
+            font-family: 'Playfair Display', serif; 
+            text-align: center; 
+            font-size: 2.8rem; 
+            margin-bottom: 50px; 
+            color: var(--primary-blue);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .category-box { background: #0a0a0a; padding: 30px; border: 1px solid #222; }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 5px;
+        }
+        .price { color: var(--primary-blue); font-weight: bold; }
+
+        /* --- MAPA --- */
+        .map-container {
+            width: 100%;
+            height: 450px;
+            margin-top: 30px;
+            filter: invert(90%) hue-rotate(180deg);
+        }
+
+        footer {
+            background: #000;
+            padding: 50px 10%;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        /* Schowana sekcja dla SEO */
+        .seo-text {
+            font-size: 0.8rem;
+            color: #444;
+            margin-top: 20px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="logo1.png" alt="Manhattan Pizza Opole - Logo Pizzerii">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Start</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#kontakt">Pizzeria Nocna</a></li>
+        </ul>
+        <div class="burger" id="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <h1><span>Manhattan Pizza</span> Opole</h1>
+        <p>Najlepsza pizzeria nocna w Opolu – smak, który rządzi miastem!</p>
+        <a href="#menu" class="btn">ZOBACZ MENU</a>
+    </header>
+
+    <section id="menu">
+        <h2>Pizzeria Manhattan - Karta Dań</h2>
+        <div class="menu-grid">
+            <div class="category-box">
+                <h3 style="color:white; margin-bottom:15px;">Pizza Klasyczna</h3>
+                <div class="menu-item"><span>Manhattan (Szynka, Pieczarki)</span><span class="price">38 zł</span></div>
+                <div class="menu-item"><span>Opolska (Salami, Cebula)</span><span class="price">41 zł</span></div>
+                <div class="menu-item"><span>Diavola (Ostra)</span><span class="price">44 zł</span></div>
+            </div>
+            <div class="category-box">
+                <h3 style="color:white; margin-bottom:15px;">Dostawa Nocna</h3>
+                <p style="font-size:0.9rem; color:var(--primary-blue)">Dostarczamy na terenie całego Opola do godziny 03:00!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt">
+        <h2>Kontakt i Lokalizacja</h2>
+        <div style="text-align: center; margin-bottom: 30px;">
+            <p><strong>Pizzeria Manhattan Opole</strong></p>
+            <p>ul. Przykładowa 12, 45-001 Opole</p>
+            <p>Telefon: <a href="tel:+48111222333" style="color:var(--primary-blue); text-decoration:none;">+48 111 222 333</a></p>
+            <p>Pizzeria Nocna: Otwarte do 03:00 rano!</p>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40453.76569654132!2d17.892976!3d50.671046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47104bd3685f061f%3A0x1c36097d819446d3!2sOpole!5e0!3m2!1spl!2spl!4v1700000000000" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Manhattan Pizza Opole. Wszystkie prawa zastrzeżone.</p>
+        <div class="seo-text">
+            Manhattan Pizza to Twoja ulubiona pizzeria w Opolu. Jako znana pizzeria nocna Manhattan, oferujemy dowóz jedzenia na terenie całego miasta Opole. Nasza Manhattan Pizza to gwarancja świeżości nawet w środku nocy. Szukasz "pizzeria Opole" lub "pizzeria nocna"? Wybierz nas!
+        </div>
+    </footer>
+
+    <script>
+        const burger = document.querySelector('#burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(nav.classList.contains('nav-active')) {
+                    nav.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
